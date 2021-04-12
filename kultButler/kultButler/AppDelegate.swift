@@ -5,6 +5,7 @@
 //  Created by Gabriel Knoll on 12.04.21.
 //
 
+import Apollo
 import UIKit
 
 // swiftlint:disable line_length
@@ -13,7 +14,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+		Network.shared.apollo.fetch(query: ProducListsQuery()) { result in
+		  switch result {
+		  case .success(let graphQLResult):
+			print("Success! Result: \(graphQLResult)")
+		  case .failure(let error):
+			print("Failure! Error: \(error)")
+		  }
+		}
 		return true
 	}
 

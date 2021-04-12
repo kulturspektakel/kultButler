@@ -1,0 +1,10 @@
+query ProducLists {
+  productLists {
+    name
+    emoji
+    product(orderBy: {order: asc}) {
+      name
+      price
+    }
+  }
+}
