@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-
 	@StateObject var network = Network.shared
 
 	var body: some View {
-		VStack {
-			Text(network.description)
-				.padding()
+		List {
+			ForEach(network.products) { product in
+				Text(product.name)
+			}
 		}.onAppear(perform: network.loadProducts)
 	}
 }

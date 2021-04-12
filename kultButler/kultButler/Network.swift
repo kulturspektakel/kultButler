@@ -11,9 +11,10 @@ import Foundation
 class Network: ObservableObject {
 	static let shared = Network()
 
+	//swiftlint:disable:next force_unwrapping
 	private(set) lazy var apollo = ApolloClient(url: URL(string: "https://api.kulturspektakel.de/graphql")!)
 
-	@Published var products = [ProducListsQuery.Data.ProductList]()
+	@Published var products = [Product]()
 	@Published var description: String = "Please wait"
 
 	public func loadProducts() {
@@ -29,11 +30,19 @@ class Network: ObservableObject {
 					guard let results = graphQLResult.data else {
 						fatalError()
 					}
-					self.products = results.productLists
+					results.productLists.forEach { product in
+						let p = Product(name: product.name)
+						self.products.append(p)
+					}
 					self.description = results.productLists.debugDescription
 				case .failure(let error):
 					fatalError(error.localizedDescription)
 				}
 			}
 	}
+}
+
+public struct Product: Equatable, Identifiable {
+	public let id = UUID()
+	public let name: String
 }

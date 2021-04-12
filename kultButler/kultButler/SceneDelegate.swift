@@ -5,10 +5,9 @@
 //  Created by Gabriel Knoll on 12.04.21.
 //
 
-import UIKit
 import SwiftUI
+import UIKit
 
-// swiftlint:disable line_length
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 	var window: UIWindow?
