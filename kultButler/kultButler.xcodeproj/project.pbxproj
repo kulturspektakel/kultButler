@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		F508605F2624CF1B008089F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F508605E2624CF1B008089F8 /* Assets.xcassets */; };
 		F50860622624CF1B008089F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F50860612624CF1B008089F8 /* Preview Assets.xcassets */; };
 		F50860652624CF1B008089F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F50860632624CF1B008089F8 /* LaunchScreen.storyboard */; };
+		F508606F2624D094008089F8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = F508606E2624D094008089F8 /* Apollo */; };
+		F50860752624D254008089F8 /* SumUpSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F50860742624D254008089F8 /* SumUpSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F50860752624D254008089F8 /* SumUpSDK in Frameworks */,
+				F508606F2624D094008089F8 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +86,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F50860692624CF1B008089F8 /* Build configuration list for PBXNativeTarget "kultButler" */;
 			buildPhases = (
+				F50860712624D154008089F8 /* Swiftlint */,
 				F50860512624CF19008089F8 /* Sources */,
 				F50860522624CF19008089F8 /* Frameworks */,
 				F50860532624CF19008089F8 /* Resources */,
@@ -91,6 +96,10 @@
 			dependencies = (
 			);
 			name = kultButler;
+			packageProductDependencies = (
+				F508606E2624D094008089F8 /* Apollo */,
+				F50860742624D254008089F8 /* SumUpSDK */,
+			);
 			productName = kultButler;
 			productReference = F50860552624CF19008089F8 /* kultButler.app */;
 			productType = "com.apple.product-type.application";
@@ -118,6 +127,10 @@
 				Base,
 			);
 			mainGroup = F508604C2624CF19008089F8;
+			packageReferences = (
+				F508606D2624D094008089F8 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				F50860732624D254008089F8 /* XCRemoteSwiftPackageReference "sumup-ios-sdk" */,
+			);
 			productRefGroup = F50860562624CF19008089F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,6 +152,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F50860712624D154008089F8 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F50860512624CF19008089F8 /* Sources */ = {
@@ -345,6 +379,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F508606D2624D094008089F8 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.42.0;
+			};
+		};
+		F50860732624D254008089F8 /* XCRemoteSwiftPackageReference "sumup-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sumup/sumup-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F508606E2624D094008089F8 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F508606D2624D094008089F8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		F50860742624D254008089F8 /* SumUpSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F50860732624D254008089F8 /* XCRemoteSwiftPackageReference "sumup-ios-sdk" */;
+			productName = SumUpSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F508604D2624CF19008089F8 /* Project object */;
 }
