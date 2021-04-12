@@ -14,7 +14,7 @@ class Network: ObservableObject {
 	//swiftlint:disable:next force_unwrapping
 	private(set) lazy var apollo = ApolloClient(url: URL(string: "https://api.kulturspektakel.de/graphql")!)
 
-	@Published var products = [Booth]()
+	@Published var booths = [Booth]()
 	@Published var description: String = "Please wait"
 
 	public func loadProducts() {
@@ -31,10 +31,13 @@ class Network: ObservableObject {
 						fatalError()
 					}
 					results.productLists.forEach { booth in
+						let products = booth.product.map { product in
+							Product(name: product.name, price: product.price)
+						}
 						let newBooth = Booth(name: booth.name,
 											 emoji: booth.emoji,
-											 products: booth.product)
-						self.products.append(newBooth)
+											 products: products)
+						self.booths.append(newBooth)
 					}
 					self.description = results.productLists.debugDescription
 				case .failure(let error):
@@ -44,13 +47,15 @@ class Network: ObservableObject {
 	}
 }
 
-public struct Booth: Equatable, Identifiable {
-	public static func == (lhs: Booth, rhs: Booth) -> Bool {
-		lhs.name == rhs.name
-	}
-
+public struct Booth: Identifiable, Hashable {
 	public let id = UUID()
 	public let name: String
 	public let emoji: String?
-	public let products: [ProducListsQuery.Data.ProductList.Product]
+	public let products: [Product]
+}
+
+public struct Product: Identifiable, Hashable {
+	public let id = UUID()
+	public let name: String
+	public let price: Int
 }

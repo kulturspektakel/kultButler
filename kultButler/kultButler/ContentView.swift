@@ -16,8 +16,9 @@ struct ContentView: View {
 			VStack(alignment: .leading, spacing: 20) {
 				Text("Produktauswahl").font(Font.system(.largeTitle))
 				List {
-					ForEach(network.products) { product in
-						Text((product.emoji ?? "") + " " + product.name)
+					ForEach(network.booths) { booth in
+						Text((booth.emoji ?? "") + " " + booth.name)
+						ProductView(products: booth.products)
 					}
 				}.listStyle(PlainListStyle())
 			}
@@ -36,6 +37,24 @@ struct ContentView: View {
 					   maxHeight: .infinity)
 			}
 		}.onAppear(perform: network.loadProducts)
+	}
+}
+
+struct ProductView: View {
+	var products = [Product]()
+
+	init(products: [Product]) {
+		self.products = products
+	}
+
+	var body: some View {
+		ScrollView(.horizontal) {
+			LazyHStack(spacing: 20) {
+				ForEach(products) { product in
+					Button(product.name + " " + String(product.price), action: { print("Kaufen") })
+				}
+			}
+		}
 	}
 }
 
