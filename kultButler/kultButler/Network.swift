@@ -11,6 +11,7 @@ import Foundation
 class Network: ObservableObject {
 	static let shared = Network()
 
+	//Test
 	//swiftlint:disable:next force_unwrapping
 	private(set) lazy var apollo = ApolloClient(url: URL(string: "https://api.kulturspektakel.de/graphql")!)
 
