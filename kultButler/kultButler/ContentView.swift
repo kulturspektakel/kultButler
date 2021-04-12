@@ -13,7 +13,7 @@ struct ContentView: View {
 	var body: some View {
 		List {
 			ForEach(network.products) { product in
-				Text(product.name)
+				Text((product.emoji ?? "") + " " + product.name)
 			}
 		}.onAppear(perform: network.loadProducts)
 	}
