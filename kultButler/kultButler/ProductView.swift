@@ -9,16 +9,31 @@ import SwiftUI
 
 struct ProductView: View {
     var products = [Product]()
-
+    
     init(products: [Product]) {
         self.products = products
     }
-
+    var colums : [GridItem] = Array(repeating: .init(.flexible()), count: 5)
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHStack(spacing: 20) {
+        ScrollView(.vertical){
+            LazyVGrid(columns: colums, alignment: .leading, spacing: 20.0){
                 ForEach(products) { product in
-                    Button(product.name + " " + String(product.price), action: { print("Kaufen") })
+                    VStack {
+                        Button (action: { print(product.name) })
+                        {VStack{
+
+                            Text(product.name).fontWeight(.semibold).truncationMode(.tail)
+                            Text("")
+                            Text(String(Double(product.price)/100)+"0€")
+                            
+                        }
+                        }
+                        .frame(minWidth: 100, maxWidth: 100, minHeight: 100, maxHeight:100, alignment:.center)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+                        .cornerRadius(20)
+                    }
                 }
             }
         }
