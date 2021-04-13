@@ -9,26 +9,29 @@ import SwiftUI
 
 struct ProductView: View {
     var products = [Product]()
-    
+
     init(products: [Product]) {
         self.products = products
     }
-    var colums : [GridItem] = Array(repeating: .init(.flexible()), count: 5)
+
+    var colums: [GridItem] = Array(repeating: .init(.flexible()), count: 5)
     var body: some View {
-        ScrollView(.vertical){
-            LazyVGrid(columns: colums, alignment: .leading, spacing: 20.0){
+        ScrollView(.vertical) {
+            LazyVGrid(columns: colums, alignment: .leading, spacing: 20.0) {
                 ForEach(products) { product in
                     VStack {
-                        Button (action: { print(product.name) })
-                        {VStack{
-
-                            Text(product.name).fontWeight(.semibold).truncationMode(.tail)
-                            Text("")
-                            Text(String(Double(product.price)/100)+"0€")
-                            
+                        // swiftlint:disable:next multiple_closures_with_trailing_closure
+                        Button( action: { print(product.name) }) {
+                            VStack {
+                                Text(product.name)
+                                    .fontWeight(.semibold)
+                                    .truncationMode(.tail)
+                                    .lineLimit(1)
+                                Text("")
+                                Text(String(Double(product.price) / 100) + "0€")
+                            }
                         }
-                        }
-                        .frame(minWidth: 100, maxWidth: 100, minHeight: 100, maxHeight:100, alignment:.center)
+                        .frame(minWidth: 100, maxWidth: 100, minHeight: 100, maxHeight: 100, alignment: .center)
                         .padding()
                         .foregroundColor(.white)
                         .background(Color.blue)
