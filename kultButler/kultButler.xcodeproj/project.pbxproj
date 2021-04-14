@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9833C702625BE1E004771B1 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9833C6F2625BE1E004771B1 /* ProductView.swift */; };
 		F50860592624CF19008089F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860582624CF19008089F8 /* AppDelegate.swift */; };
 		F508605B2624CF19008089F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F508605A2624CF19008089F8 /* SceneDelegate.swift */; };
 		F508605D2624CF19008089F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F508605C2624CF19008089F8 /* ContentView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E9833C6F2625BE1E004771B1 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		F50860552624CF19008089F8 /* kultButler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kultButler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50860582624CF19008089F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F508605A2624CF19008089F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				F50860582624CF19008089F8 /* AppDelegate.swift */,
 				F508605A2624CF19008089F8 /* SceneDelegate.swift */,
 				F508605C2624CF19008089F8 /* ContentView.swift */,
+				E9833C6F2625BE1E004771B1 /* ProductView.swift */,
 				F50860892624D6D0008089F8 /* Network.swift */,
 				F508605E2624CF1B008089F8 /* Assets.xcassets */,
 				F50860632624CF1B008089F8 /* LaunchScreen.storyboard */,
@@ -214,6 +217,7 @@
 				F50860592624CF19008089F8 /* AppDelegate.swift in Sources */,
 				F508605B2624CF19008089F8 /* SceneDelegate.swift in Sources */,
 				F50860832624D670008089F8 /* API.swift in Sources */,
+				E9833C702625BE1E004771B1 /* ProductView.swift in Sources */,
 				F508605D2624CF19008089F8 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

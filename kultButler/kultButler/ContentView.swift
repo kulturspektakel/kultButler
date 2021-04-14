@@ -50,27 +50,3 @@ struct TestView: View {
 		Text("Hello?")
 	}
 }
-
-struct ProductView: View {
-	var products = [Product]()
-
-	init(products: [Product]) {
-		self.products = products
-	}
-
-	var body: some View {
-		ScrollView(.horizontal) {
-			LazyHStack(spacing: 20) {
-				ForEach(products) { product in
-					Button(product.name + " " + String(product.price), action: { print("Kaufen") })
-				}
-			}
-		}
-	}
-}
-
-struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		ContentView()
-	}
-}
