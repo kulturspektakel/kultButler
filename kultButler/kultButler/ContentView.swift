@@ -30,8 +30,11 @@ struct ContentView: View {
 					VStack {
 						Text("Produkt 1")
 						Text("Produkt 2")
-						NavigationLink(destination: TestView()) {
+						NavigationLink(destination: PayMethodsView()) {
 							Text("Bezahlen")
+                                .frame(width: 200, height: 100)
+                                .background(Color.blue)
+                                .foregroundColor(.white)
 						}.navigationTitle("Navigation")
 					}
 					.listStyle(SidebarListStyle())
@@ -45,8 +48,8 @@ struct ContentView: View {
 	}
 }
 
-struct TestView: View {
-	var body: some View {
-		Text("Hello?")
-	}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
 }
