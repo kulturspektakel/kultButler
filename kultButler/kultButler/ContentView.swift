@@ -28,8 +28,7 @@ struct ContentView: View {
                 VStack(alignment: .leading) {
                     Text("Bestellung").font(Font.system(.largeTitle))
                     VStack {
-                        Text("Produkt 1")
-                        Text("Produkt 2")
+                        SelectedProductsView()
                         NavigationLink(destination: PayMethodsView()) {
                             Text("Bezahlen")
                                 .frame(width: 200, height: 100)

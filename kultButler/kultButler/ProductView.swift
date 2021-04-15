@@ -9,12 +9,16 @@ import SwiftUI
 
 struct ProductView: View {
     var products = [Product]()
+
     init (products: [Product]) {
         self.products = products
     }
+
     let gridItemWidth = (UIScreen.main.bounds.width / 3) * 0.22
     let gridSpacingWidth = (UIScreen.main.bounds.width / 3) * 0.05
-    var colums: [GridItem] = Array(repeating: .init(.fixed((UIScreen.main.bounds.width / 3) * 0.22 + (((UIScreen.main.bounds.width / 3) * 0.22) / 5) * 2), spacing: (UIScreen.main.bounds.width / 3) * 0.05), count: 5)
+
+    var colums: [GridItem] =
+        Array(repeating: .init(.fixed((UIScreen.main.bounds.width / 3) * 0.22 + (((UIScreen.main.bounds.width / 3) * 0.22) / 5) * 2), spacing: (UIScreen.main.bounds.width / 3) * 0.05), count: 5)
     var body: some View {
         ScrollView(.vertical) {
             VStack {
@@ -30,24 +34,27 @@ struct ProductView: View {
                                         .lineLimit(1)
                                     Text("")
                                     Text("\(priceAsDouble(price: product.price), specifier: "%.2f") €")
-                                }
+                                }.frame(width: gridItemWidth, height: gridItemWidth, alignment: .center)
+                                .padding((gridItemWidth / 5))
+                                .foregroundColor(.white)
+                                .background(Color.blue)
+                                .cornerRadius(gridItemWidth / 4.5)
                             }
-                            .frame(width: gridItemWidth, height: gridItemWidth, alignment: .center)
-                            .padding((gridItemWidth / 5))
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(gridItemWidth / 4.5)
                         }
                     }
                 }
             }
         }
     }
+
     func priceAsDouble(price: Int) -> Double { (Double(price) / 100.0) }
 }
 struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
         let products = [Product(name: "Fleischlappen", price: 400)]
-        ProductView(products: products)
+        Group {
+            ProductView(products: products)
+            ProductView(products: products)
+        }
     }
 }
