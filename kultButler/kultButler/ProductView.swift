@@ -36,7 +36,7 @@ struct ProductView: View {
                                         .truncationMode(.tail)
                                         .lineLimit(1)
                                     Text("")
-                                    Text("\(priceAsDouble(price: product.price), specifier: "%.2f") €")
+									Text("\(product.price.string) €")
                                 }.frame(width: gridItemWidth, height: gridItemWidth, alignment: .center)
                                 .padding((gridItemWidth / 5))
                                 .foregroundColor(.white)
@@ -50,12 +50,11 @@ struct ProductView: View {
             }
         }
     }
-
-    func priceAsDouble(price: Int) -> Double { (Double(price) / 100.0) }
 }
+
 struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
-        let products = [Product(name: "Fleischlappen", price: 400)]
+        let products = [Product(name: "Fleischlappen", price: Price(string: "4.00", double: 400))]
         ProductView(products: products)
     }
 }

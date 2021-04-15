@@ -16,6 +16,8 @@ class Network: ObservableObject {
 
 	@Published var booths = [Booth]()
 
+	private typealias ApolloProduct = ProducListsQuery.Data.ProductList.Product
+
 	public func loadProducts() {
 		Network.shared.apollo
 			.fetch(query: ProducListsQuery()) { [weak self] result in
@@ -28,8 +30,8 @@ class Network: ObservableObject {
 						return
 					}
 					results.productLists.forEach { booth in
-						let products = booth.product.map { product in
-							Product(name: product.name, price: product.price)
+						let products = booth.product.map { product -> Product in
+							Product(name: product.name, price: self.priceForProduct(product))
 						}
 						let newBooth = Booth(name: booth.name,
 											 emoji: booth.emoji,
@@ -42,17 +44,28 @@ class Network: ObservableObject {
 				}
 			}
 	}
+
+	private func priceForProduct(_ product: ApolloProduct) -> Price {
+		let double = Double(product.price) / 100.0
+		let string = String(format: "%.2f", double)
+		return Price(string: string, double: double)
+	}
 }
 
-public struct Booth: Identifiable, Hashable {
+public struct Booth: Identifiable {
 	public let id = UUID()
 	public let name: String
 	public let emoji: String?
 	public let products: [Product]
 }
 
-public struct Product: Identifiable, Hashable {
+public struct Product: Identifiable {
 	public let id = UUID()
 	public let name: String
-	public let price: Int
+	public let price: Price
+}
+
+public struct Price {
+	public let string: String
+	public let double: Double
 }
