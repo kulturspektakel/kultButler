@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PayMethodsView: View {
 	@State private var showSumUpSDK = false
+    @State private var showSumUpCard = false
 	@State private var paymentInfo = ""
 	@State private var barButtonDisable = false
 	@State private var karteDisableButton = false
@@ -33,8 +34,10 @@ struct PayMethodsView: View {
 					.cornerRadius(10.0)
 					.disabled(barButtonDisable)
 				}
-				Button(action: {
-					self.paymentInfo = "Karten Zahlung"
+                NavigationLink(destination: SumUpCard(), isActive: $showSumUpCard) {
+                    Button(action: {
+                        self.showSumUpCard = true
+                        self.paymentInfo = "Karten Zahlung"
 				}) { Text("Karte")
 					.frame(width: 150, height: 75)
 					.padding()
@@ -42,6 +45,7 @@ struct PayMethodsView: View {
 					.foregroundColor(.white)
 					.cornerRadius(10.0)
 					.disabled(barButtonDisable)
+                    }
 				}
 				Button(action: {
 					self.paymentInfo = "Gutschein Zahlung"
@@ -82,9 +86,20 @@ struct PayMethodsView: View {
 	}
 }
 
-//func sumuppayment(total: Double) -> Int {
-//	return 0
-//}
+func sumuppayment(total: Double) {
+    
+    
+ 
+}
+    
+struct SumUpCard: UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
+
+    func makeUIViewController(context: Context) -> some UIViewController {
+        CardReaderCheckoutView()
+    }
+}
+
 
 struct SumUpView: UIViewControllerRepresentable {
 	func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
