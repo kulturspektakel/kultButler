@@ -17,16 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		Network.shared.loadProducts()
 
-   //SumUp Integration / Payment Key
-    #if DEBUG
-        /*
-         *   Logs integration warnings in non-production code. Do not call this method in
-         *   release builds.
-         */
-        SumUpSDK.testIntegration()
-    #endif
+		//SumUp Integration / Payment Key
+		#if DEBUG
+		/*
+		*   Logs integration warnings in non-production code. Do not call this method in
+		*   release builds.
+		*/
+		SumUpSDK.testIntegration()
+		#endif
 
-    SumUpSDK.setup(withAPIKey: "4e29fecf-e88d-43e2-b258-16a0f3203528")
+		SumUpSDK.setup(withAPIKey: "4e29fecf-e88d-43e2-b258-16a0f3203528")
 
 		return true
 	}

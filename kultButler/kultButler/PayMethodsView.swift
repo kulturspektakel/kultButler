@@ -65,44 +65,34 @@ struct PayMethodsView: View {
 				}
 			}
 			Spacer()
-			Button(action: {
-				self.showSumUpSDK = true
-			}) { Text("Login")
-				.frame(width: 150, height: 75)
-				.padding()
-				.background(Color.gray)
-				.foregroundColor(.white)
-				.cornerRadius(10.0)
-				.disabled(barButtonDisable)
+			NavigationLink(destination: SumUpView(), isActive: $showSumUpSDK) {
+				Button(action: {
+					self.showSumUpSDK = true
+				}) { Text("Login")
+					.frame(width: 150, height: 75)
+					.padding()
+					.background(Color.gray)
+					.foregroundColor(.white)
+					.cornerRadius(10.0)
+					.disabled(barButtonDisable)
+				}
 			}
 			Spacer()
 		}
 	}
 }
 
-func sumuppayment(total: Double) -> Int {
-	return 0
-}
-/*
+//func sumuppayment(total: Double) -> Int {
+//	return 0
+//}
+
 struct SumUpView: UIViewControllerRepresentable {
-func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-return
-}
-func makeUIViewController(context: Context) -> some TransitionViewController {
-TransitionViewController()
-}
-}
+	func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
 
-struct SumUpView: UIViewRepresentable {
-func makeUIView(context: Context) -> TransitionViewController {
-return TransitionViewController()
+	func makeUIViewController(context: Context) -> some UIViewController {
+		TransitionViewController()
+	}
 }
-
-func updateUIView(_ uiView: TransitionViewController, context: Context) {
-
-// Update the view
-}
-}*/
 
 struct PayMethodsView_Previews: PreviewProvider {
 	static var previews: some View {
