@@ -28,11 +28,7 @@ struct ContentView: View {
 				VStack(alignment: .leading) {
 					Text("Bestellung").font(Font.system(.largeTitle))
 					VStack {
-						List {
-							ForEach(appState.currentOrder) { order in
-								Text(order.name)
-							}
-						}
+                        SelectedProductsView()
 						NavigationLink(destination: PayMethodsView()) {
 							Text("Bezahlen")
                                 .frame(width: 200, height: 100)
