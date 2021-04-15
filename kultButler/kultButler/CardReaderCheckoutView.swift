@@ -12,7 +12,6 @@ class CardReaderCheckoutView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
     func showResult(string: String) {
         print(string)
     }
@@ -38,7 +37,6 @@ class CardReaderCheckoutView: UIViewController {
         let request = CheckoutRequest(total: total,
                                       title: "Bestellung",
                                       currencyCode: merchantCurrencyCode)
-        
         SumUpSDK.checkout(with: request, from: self) { [weak self] (result: CheckoutResult?, error: Error?) in
             if let safeError = error as NSError? {
                 print("error during checkout: \(safeError)")
@@ -74,13 +72,6 @@ class CardReaderCheckoutView: UIViewController {
                 print("cancelled: no error, no success")
                 self?.showResult(string: "No charge (cancelled)")
             }
-        
-
-        // after the checkout is initiated we expect a checkout to be in progress
-        if !SumUpSDK.checkoutInProgress {
-            // something went wrong: checkout was not started
-            print("failed to start checkout")
         }
-    }
     }
 }

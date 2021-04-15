@@ -382,7 +382,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"kultButler/Preview Content\"";
-				DEVELOPMENT_TEAM = FY482T2YCZ;
+				DEVELOPMENT_TEAM = XS5UL3574V;
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = kultButler/Info.plist;

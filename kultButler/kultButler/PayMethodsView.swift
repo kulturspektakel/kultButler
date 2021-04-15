@@ -72,7 +72,7 @@ struct PayMethodsView: View {
 			NavigationLink(destination: SumUpView(), isActive: $showSumUpSDK) {
 				Button(action: {
 					self.showSumUpSDK = true
-				}) { Text("Login")
+				}) { Text("SumUp Login")
 					.frame(width: 150, height: 75)
 					.padding()
 					.background(Color.gray)
@@ -87,11 +87,7 @@ struct PayMethodsView: View {
 }
 
 func sumuppayment(total: Double) {
-    
-    
- 
 }
-    
 struct SumUpCard: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
 
@@ -99,8 +95,6 @@ struct SumUpCard: UIViewControllerRepresentable {
         CardReaderCheckoutView()
     }
 }
-
-
 struct SumUpView: UIViewControllerRepresentable {
 	func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
 
