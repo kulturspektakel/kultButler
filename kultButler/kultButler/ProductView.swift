@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct ProductView: View {
-    
+
     @EnvironmentObject var appState: AppState
-    
+
     var products = [Product]()
-    
+
     init (products: [Product]) {
         self.products = products
     }
-    
+
     let gridItemWidth = (UIScreen.main.bounds.width / 3) * 0.22
     let gridSpacingWidth = (UIScreen.main.bounds.width / 3) * 0.05
-    
+
     var colums: [GridItem] = Array(repeating: .init(.fixed((UIScreen.main.bounds.width / 3) * 0.22 + (((UIScreen.main.bounds.width / 3) * 0.22) / 5) * 2), spacing: (UIScreen.main.bounds.width / 3) * 0.05), count: 5)
-    
+
     var body: some View {
         ScrollView(.vertical) {
             VStack {
@@ -43,15 +43,14 @@ struct ProductView: View {
                                 .background(Color.blue)
                                 .cornerRadius(gridItemWidth / 4.5)
                             }
-                            
+
                         }
                     }
                 }
             }
         }
     }
-    
-    
+
     func priceAsDouble(price: Int) -> Double { (Double(price) / 100.0) }
 }
 struct ProductView_Previews: PreviewProvider {

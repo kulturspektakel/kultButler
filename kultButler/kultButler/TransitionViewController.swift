@@ -5,11 +5,10 @@
 //  Created by Valentin Langer on 15.04.21.
 //
 
-import UIKit
 import SumUpSDK
+import UIKit
 
 class TransitionViewController: UIViewController {
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
