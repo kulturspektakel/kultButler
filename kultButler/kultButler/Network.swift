@@ -15,20 +15,17 @@ class Network: ObservableObject {
 	private(set) lazy var apollo = ApolloClient(url: URL(string: "https://api.kulturspektakel.de/graphql")!)
 
 	@Published var booths = [Booth]()
-	@Published var description: String = "Please wait"
 
 	public func loadProducts() {
 		Network.shared.apollo
 			.fetch(query: ProducListsQuery()) { [weak self] result in
-
-				guard let self = self else {
-					return
-				}
+				guard let self = self else { return }
 
 				switch result {
 				case .success(let graphQLResult):
 					guard let results = graphQLResult.data else {
-						fatalError()
+						assertionFailure("Couldn't load ProductList")
+						return
 					}
 					results.productLists.forEach { booth in
 						let products = booth.product.map { product in
@@ -39,7 +36,7 @@ class Network: ObservableObject {
 											 products: products)
 						self.booths.append(newBooth)
 					}
-					self.description = results.productLists.debugDescription
+					print("Loaded ProductList succesfully")
 				case .failure(let error):
 					fatalError(error.localizedDescription)
 				}

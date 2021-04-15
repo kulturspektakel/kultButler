@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E968E01926287DC70001E857 /* SelectedProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968E01826287DC70001E857 /* SelectedProductsView.swift */; };
 		E9833C702625BE1E004771B1 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9833C6F2625BE1E004771B1 /* ProductView.swift */; };
 		F50860592624CF19008089F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860582624CF19008089F8 /* AppDelegate.swift */; };
 		F508605B2624CF19008089F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F508605A2624CF19008089F8 /* SceneDelegate.swift */; };
@@ -20,10 +21,12 @@
 		F50860832624D670008089F8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860822624D670008089F8 /* API.swift */; };
 		F508608A2624D6D0008089F8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860892624D6D0008089F8 /* Network.swift */; };
 		F94EB7A12628DA660012ECE3 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94EB7A02628DA660012ECE3 /* TransitionViewController.swift */; };
+		F53A22E82628CFD60046498A /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A22E72628CFD60046498A /* AppState.swift */; };
 		F9C02FAB2627182900DF65DB /* PayMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C02FAA2627182900DF65DB /* PayMethodsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E968E01826287DC70001E857 /* SelectedProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProductsView.swift; sourceTree = "<group>"; };
 		E9833C6F2625BE1E004771B1 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		F50860552624CF19008089F8 /* kultButler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kultButler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50860582624CF19008089F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		F50860822624D670008089F8 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		F50860892624D6D0008089F8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		F94EB7A02628DA660012ECE3 /* TransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
+		F53A22E72628CFD60046498A /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		F9C02FAA2627182900DF65DB /* PayMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayMethodsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,10 +78,12 @@
 			isa = PBXGroup;
 			children = (
 				F50860822624D670008089F8 /* API.swift */,
+				F53A22E72628CFD60046498A /* AppState.swift */,
 				F508607D2624D574008089F8 /* schema.json */,
 				F50860582624CF19008089F8 /* AppDelegate.swift */,
 				F508605A2624CF19008089F8 /* SceneDelegate.swift */,
 				F508605C2624CF19008089F8 /* ContentView.swift */,
+				E968E01826287DC70001E857 /* SelectedProductsView.swift */,
 				F9C02FAA2627182900DF65DB /* PayMethodsView.swift */,
 				F94EB7A02628DA660012ECE3 /* TransitionViewController.swift */,
 				E9833C6F2625BE1E004771B1 /* ProductView.swift */,
@@ -223,8 +229,11 @@
 				F50860592624CF19008089F8 /* AppDelegate.swift in Sources */,
 				F508605B2624CF19008089F8 /* SceneDelegate.swift in Sources */,
 				F94EB7A12628DA660012ECE3 /* TransitionViewController.swift in Sources */,
+
+				F53A22E82628CFD60046498A /* AppState.swift in Sources */,
 				F9C02FAB2627182900DF65DB /* PayMethodsView.swift in Sources */,
 				F50860832624D670008089F8 /* API.swift in Sources */,
+				E968E01926287DC70001E857 /* SelectedProductsView.swift in Sources */,
 				E9833C702625BE1E004771B1 /* ProductView.swift in Sources */,
 				F508605D2624CF19008089F8 /* ContentView.swift in Sources */,
 			);
@@ -279,6 +288,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -340,6 +350,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -368,13 +379,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"kultButler/Preview Content\"";
 				DEVELOPMENT_TEAM = XS5UL3574V;
+				DEVELOPMENT_TEAM = FY482T2YCZ;
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = kultButler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = de.kult.kultButler;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.kult-kultButler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -389,13 +402,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"kultButler/Preview Content\"";
 				DEVELOPMENT_TEAM = XS5UL3574V;
+				DEVELOPMENT_TEAM = FY482T2YCZ;
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = kultButler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = de.kult.kultButler;
+				PRODUCT_BUNDLE_IDENTIFIER = "de.kult-kultButler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
