@@ -20,8 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Wo ist der Drucker?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Weil Steuerhinterziehung böse</string>
+	<string>Weil Steuerhinterziehung böse!</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
