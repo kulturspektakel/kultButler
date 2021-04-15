@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-	@StateObject var network = Network.shared
+	@StateObject var appState = AppState()
 
 	var body: some View {
 		NavigationView {
@@ -17,7 +17,7 @@ struct ContentView: View {
 				VStack(alignment: .leading, spacing: 20) {
 					Text("Produktauswahl").font(Font.system(.largeTitle))
 					List {
-						ForEach(network.booths) { booth in
+						ForEach(appState.booths) { booth in
 							Text((booth.emoji ?? "") + " " + booth.name)
 							ProductView(products: booth.products)
 						}
@@ -28,8 +28,11 @@ struct ContentView: View {
 				VStack(alignment: .leading) {
 					Text("Bestellung").font(Font.system(.largeTitle))
 					VStack {
-						Text("Produkt 1")
-						Text("Produkt 2")
+						List {
+							ForEach(appState.currentOrder) { order in
+								Text(order.name)
+							}
+						}
 						NavigationLink(destination: PayMethodsView()) {
 							Text("Bezahlen")
                                 .frame(width: 200, height: 100)
@@ -43,8 +46,10 @@ struct ContentView: View {
 						   minHeight: 0,
 						   maxHeight: .infinity)
 				}
-			}.onAppear(perform: network.loadProducts)
-		}.navigationViewStyle(StackNavigationViewStyle())
+			}
+		}
+		.navigationViewStyle(StackNavigationViewStyle())
+		.environmentObject(appState)
 	}
 }
 

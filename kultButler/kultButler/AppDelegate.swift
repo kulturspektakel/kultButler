@@ -14,14 +14,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		Network.shared.apollo.fetch(query: ProducListsQuery()) { result in
-		  switch result {
-		  case .success(let graphQLResult):
-			print("Success! Result: \(graphQLResult)")
-		  case .failure(let error):
-			print("Failure! Error: \(error)")
-		  }
-		}
+		Network.shared.loadProducts()
 		return true
 	}
 
