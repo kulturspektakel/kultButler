@@ -11,7 +11,12 @@ import SwiftUI
 
 class AppState: ObservableObject {
 	@Published var booths = [Booth]()
-	@Published private(set) var currentOrder = [Product]()
+	@Published var currentOrderSum: Double = 0.0
+	@Published private(set) var currentOrder = [Product]() {
+		didSet {
+			currentOrderSum = calculateOrderSum()
+		}
+	}
 
 	private var boothLoader: AnyCancellable?
 
@@ -32,5 +37,11 @@ class AppState: ObservableObject {
 
 	public func resetCurrentOrder() {
 		currentOrder = []
+	}
+
+	private func calculateOrderSum() -> Double {
+		currentOrder.reduce(0.0, { acc, order in
+			acc + order.price.double
+		})
 	}
 }

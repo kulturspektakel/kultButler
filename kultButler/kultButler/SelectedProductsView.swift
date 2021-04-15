@@ -18,7 +18,7 @@ struct SelectedProductsView: View {
                         .fontWeight(.semibold)
                         .truncationMode(.tail)
                         .lineLimit(1)
-                    Text("\(priceAsDouble(price: order.price), specifier: "%.2f") €")
+					Text("\(order.price.string) €")
                         .fontWeight(.semibold)
                         .truncationMode(.tail)
                         .lineLimit(1)
@@ -33,9 +33,8 @@ struct SelectedProductsView: View {
     func delete(at offsets: IndexSet) {
 		appState.removeOrders(atOffsets: offsets)
 	}
-
-    func priceAsDouble(price: Int) -> Double { (Double(price) / 100.0) }
 }
+
 struct SelectedProductsView_Previews: PreviewProvider {
     static var previews: some View {
         SelectedProductsView()

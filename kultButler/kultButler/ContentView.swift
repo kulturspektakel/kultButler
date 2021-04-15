@@ -29,6 +29,8 @@ struct ContentView: View {
 					Text("Bestellung").font(Font.system(.largeTitle))
 					VStack {
                         SelectedProductsView()
+						Text("Gesamter Bestellwert: \(appState.currentOrderSum, specifier: "%.2f") €")
+						Divider()
 						NavigationLink(destination: PayMethodsView()) {
 							Text("Bezahlen")
                                 .frame(width: 200, height: 100)
