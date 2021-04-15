@@ -31,12 +31,21 @@ struct ContentView: View {
                         SelectedProductsView()
 						Text("Gesamter Bestellwert: \(appState.currentOrderSum, specifier: "%.2f") €")
 						Divider()
-						NavigationLink(destination: PayMethodsView()) {
-							Text("Bezahlen")
-                                .frame(width: 200, height: 100)
-                                .background(Color.blue)
-                                .foregroundColor(.white)
-						}.navigationTitle("Navigation")
+						HStack {
+							Text("Zurücksetzen")
+								//swiftlint:disable:next colon
+								.frame(width: 200, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+								.background(Color.red)
+								.foregroundColor(.white)
+								.onTapGesture { appState.resetCurrentOrder() }
+							NavigationLink(destination: PayMethodsView()) {
+								Text("Bezahlen")
+									//swiftlint:disable:next colon
+									.frame(width: 200, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+									.background(Color.blue)
+									.foregroundColor(.white)
+							}.navigationTitle("Start")
+						}
 					}
 					.listStyle(SidebarListStyle())
 					.frame(minWidth: 0,
