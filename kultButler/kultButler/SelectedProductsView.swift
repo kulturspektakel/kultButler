@@ -31,8 +31,9 @@ struct SelectedProductsView: View {
     }
 
     func delete(at offsets: IndexSet) {
-        //remove(atOffsets: offsets)
-    }
+		appState.removeOrders(atOffsets: offsets)
+	}
+
     func priceAsDouble(price: Int) -> Double { (Double(price) / 100.0) }
 }
 struct SelectedProductsView_Previews: PreviewProvider {

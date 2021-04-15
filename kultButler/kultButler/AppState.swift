@@ -26,6 +26,10 @@ class AppState: ObservableObject {
 		currentOrder.append(order)
 	}
 
+	public func removeOrders(atOffsets: IndexSet) {
+		currentOrder.remove(atOffsets: atOffsets)
+	}
+
 	public func resetCurrentOrder() {
 		currentOrder = []
 	}
