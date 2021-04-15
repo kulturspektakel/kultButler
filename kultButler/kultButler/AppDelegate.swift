@@ -7,6 +7,7 @@
 
 import Apollo
 import UIKit
+import SumUpSDK
 
 // swiftlint:disable line_length
 
@@ -14,7 +15,29 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+		Network.shared.apollo.fetch(query: ProducListsQuery()) { result in
+		  switch result {
+		  case .success(let graphQLResult):
+			print("Success! Result: \(graphQLResult)")
+		  case .failure(let error):
+			print("Failure! Error: \(error)")
+		  }
+		}
+
 		Network.shared.loadProducts()
+
+   //SumUp Integration / Payment Key
+    #if DEBUG
+        /*
+         *   Logs integration warnings in non-production code. Do not call this method in
+         *   release builds.
+         */
+        SumUpSDK.testIntegration()
+    #endif
+
+    SumUpSDK.setup(withAPIKey: "4e29fecf-e88d-43e2-b258-16a0f3203528")
+
 		return true
 	}
 
@@ -31,5 +54,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
 		// Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 	}
-
 }
+
