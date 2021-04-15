@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct SelectedProductsView: View {
-    @StateObject var network = Network.shared
+    @EnvironmentObject var appState: AppState
+
     var body: some View {
         List {
-            //Hier müssen alle ausgewählten Produkte eingefügt werden
-            ForEach(network.booths) {booth in
+            ForEach(appState.currentOrder) { order in
                 HStack {
-                    Text(booth.name)
+                    Text(order.name)
+                        .fontWeight(.semibold)
+                        .truncationMode(.tail)
+                        .lineLimit(1)
+                    Text("\(priceAsDouble(price: order.price), specifier: "%.2f") €")
                         .fontWeight(.semibold)
                         .truncationMode(.tail)
                         .lineLimit(1)
@@ -25,10 +29,11 @@ struct SelectedProductsView: View {
         .padding()
         .listStyle(PlainListStyle())
     }
-    
+
     func delete(at offsets: IndexSet) {
         //remove(atOffsets: offsets)
     }
+    func priceAsDouble(price: Int) -> Double { (Double(price) / 100.0) }
 }
 struct SelectedProductsView_Previews: PreviewProvider {
     static var previews: some View {

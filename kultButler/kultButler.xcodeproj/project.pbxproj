@@ -20,6 +20,7 @@
 		F508607F2624D5E0008089F8 /* ProductLists.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F508607E2624D5E0008089F8 /* ProductLists.graphql */; };
 		F50860832624D670008089F8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860822624D670008089F8 /* API.swift */; };
 		F508608A2624D6D0008089F8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860892624D6D0008089F8 /* Network.swift */; };
+		F53A22E82628CFD60046498A /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A22E72628CFD60046498A /* AppState.swift */; };
 		F9C02FAB2627182900DF65DB /* PayMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C02FAA2627182900DF65DB /* PayMethodsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		F508607E2624D5E0008089F8 /* ProductLists.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = ProductLists.graphql; sourceTree = "<group>"; };
 		F50860822624D670008089F8 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		F50860892624D6D0008089F8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		F53A22E72628CFD60046498A /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		F9C02FAA2627182900DF65DB /* PayMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayMethodsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				F50860822624D670008089F8 /* API.swift */,
+				F53A22E72628CFD60046498A /* AppState.swift */,
 				F508607D2624D574008089F8 /* schema.json */,
 				F50860582624CF19008089F8 /* AppDelegate.swift */,
 				F508605A2624CF19008089F8 /* SceneDelegate.swift */,
@@ -222,6 +225,7 @@
 				F508608A2624D6D0008089F8 /* Network.swift in Sources */,
 				F50860592624CF19008089F8 /* AppDelegate.swift in Sources */,
 				F508605B2624CF19008089F8 /* SceneDelegate.swift in Sources */,
+				F53A22E82628CFD60046498A /* AppState.swift in Sources */,
 				F9C02FAB2627182900DF65DB /* PayMethodsView.swift in Sources */,
 				F50860832624D670008089F8 /* API.swift in Sources */,
 				E968E01926287DC70001E857 /* SelectedProductsView.swift in Sources */,
