@@ -70,20 +70,16 @@ struct PayMethodsView: View {
                 }
             }
             Spacer()
-            NavigationLink(
-                destination: SumUpView())
-            {
-                Button(action: {
-                    self.showSumUpSDK = true
-                })
-                { Text("Login")
-                    .frame(width: 150, height: 75)
-                    .padding()
-                    .background(Color.gray)
-                    .foregroundColor(.white)
-                    .cornerRadius(10.0)
-                    .disabled(barButtonDisable)
-                }
+            Button(action: {
+                self.showSumUpSDK = true
+            })
+            { Text("Login")
+                .frame(width: 150, height: 75)
+                .padding()
+                .background(Color.gray)
+                .foregroundColor(.white)
+                .cornerRadius(10.0)
+                .disabled(barButtonDisable)
             }
             Spacer()
         }
