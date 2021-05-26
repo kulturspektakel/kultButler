@@ -21,10 +21,25 @@
 		F50860832624D670008089F8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860822624D670008089F8 /* API.swift */; };
 		F508608A2624D6D0008089F8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860892624D6D0008089F8 /* Network.swift */; };
 		F53A22E82628CFD60046498A /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A22E72628CFD60046498A /* AppState.swift */; };
+		F59B4C0D265ED04E00E7E5A1 /* libPrinterSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F59B4C0C265ED04E00E7E5A1 /* libPrinterSDK.a */; };
+		F59B4C10265ED24400E7E5A1 /* PrinterSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F59B4C0E265ED1EF00E7E5A1 /* PrinterSDK.h */; };
 		F94EB7A12628DA660012ECE3 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94EB7A02628DA660012ECE3 /* TransitionViewController.swift */; };
 		F9C02FAB2627182900DF65DB /* PayMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C02FAA2627182900DF65DB /* PayMethodsView.swift */; };
 		F9D544BE2628FEA200659C0B /* CardReaderCheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D544BD2628FEA200659C0B /* CardReaderCheckoutView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F59B4C0F265ED21800E7E5A1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				F59B4C10265ED24400E7E5A1 /* PrinterSDK.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E968E01826287DC70001E857 /* SelectedProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProductsView.swift; sourceTree = "<group>"; };
@@ -42,6 +57,9 @@
 		F50860822624D670008089F8 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		F50860892624D6D0008089F8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		F53A22E72628CFD60046498A /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		F59B4C0C265ED04E00E7E5A1 /* libPrinterSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPrinterSDK.a; sourceTree = "<group>"; };
+		F59B4C0E265ED1EF00E7E5A1 /* PrinterSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterSDK.h; sourceTree = "<group>"; };
+		F59B4C12265ED2FC00E7E5A1 /* kultButler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kultButler-Bridging-Header.h"; sourceTree = "<group>"; };
 		F94EB7A02628DA660012ECE3 /* TransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		F9C02FAA2627182900DF65DB /* PayMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayMethodsView.swift; sourceTree = "<group>"; };
 		F9D544BD2628FEA200659C0B /* CardReaderCheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReaderCheckoutView.swift; sourceTree = "<group>"; };
@@ -52,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F59B4C0D265ED04E00E7E5A1 /* libPrinterSDK.a in Frameworks */,
 				F50860752624D254008089F8 /* SumUpSDK in Frameworks */,
 				F508606F2624D094008089F8 /* Apollo in Frameworks */,
 			);
@@ -63,6 +82,7 @@
 		F508604C2624CF19008089F8 = {
 			isa = PBXGroup;
 			children = (
+				F59B4C08265ECF2300E7E5A1 /* Frameworks */,
 				F50860572624CF19008089F8 /* kultButler */,
 				F50860562624CF19008089F8 /* Products */,
 			);
@@ -94,6 +114,7 @@
 				F508605E2624CF1B008089F8 /* Assets.xcassets */,
 				F50860632624CF1B008089F8 /* LaunchScreen.storyboard */,
 				F50860662624CF1B008089F8 /* Info.plist */,
+				F59B4C11265ED2C700E7E5A1 /* Supporting Files */,
 				F50860602624CF1B008089F8 /* Preview Content */,
 				F508607E2624D5E0008089F8 /* ProductLists.graphql */,
 			);
@@ -108,6 +129,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		F59B4C08265ECF2300E7E5A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F59B4C0C265ED04E00E7E5A1 /* libPrinterSDK.a */,
+				F59B4C0E265ED1EF00E7E5A1 /* PrinterSDK.h */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		F59B4C11265ED2C700E7E5A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F59B4C12265ED2FC00E7E5A1 /* kultButler-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,6 +157,7 @@
 				F50860772624D384008089F8 /* Apollo CLI */,
 				F50860512624CF19008089F8 /* Sources */,
 				F50860522624CF19008089F8 /* Frameworks */,
+				F59B4C0F265ED21800E7E5A1 /* CopyFiles */,
 				F50860532624CF19008089F8 /* Resources */,
 			);
 			buildRules = (
@@ -385,14 +424,23 @@
 				DEVELOPMENT_TEAM = FY482T2YCZ;
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Frameworks/**",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = kultButler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/**",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.kult;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "kultButler/Supporting Files/kultButler-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -408,13 +456,22 @@
 				DEVELOPMENT_TEAM = FY482T2YCZ;
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/Frameworks/**",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = kultButler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/**",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "de.kult-kultButler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "kultButler/Supporting Files/kultButler-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
