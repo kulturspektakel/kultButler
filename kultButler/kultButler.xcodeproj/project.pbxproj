@@ -23,6 +23,7 @@
 		F53A22E82628CFD60046498A /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A22E72628CFD60046498A /* AppState.swift */; };
 		F59B4C0D265ED04E00E7E5A1 /* libPrinterSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F59B4C0C265ED04E00E7E5A1 /* libPrinterSDK.a */; };
 		F59B4C10265ED24400E7E5A1 /* PrinterSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F59B4C0E265ED1EF00E7E5A1 /* PrinterSDK.h */; };
+		F9135C91265ED6B300E79C24 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9135C90265ED6B300E79C24 /* Printer.swift */; };
 		F94EB7A12628DA660012ECE3 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94EB7A02628DA660012ECE3 /* TransitionViewController.swift */; };
 		F9C02FAB2627182900DF65DB /* PayMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C02FAA2627182900DF65DB /* PayMethodsView.swift */; };
 		F9D544BE2628FEA200659C0B /* CardReaderCheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D544BD2628FEA200659C0B /* CardReaderCheckoutView.swift */; };
@@ -60,6 +61,7 @@
 		F59B4C0C265ED04E00E7E5A1 /* libPrinterSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPrinterSDK.a; sourceTree = "<group>"; };
 		F59B4C0E265ED1EF00E7E5A1 /* PrinterSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterSDK.h; sourceTree = "<group>"; };
 		F59B4C12265ED2FC00E7E5A1 /* kultButler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kultButler-Bridging-Header.h"; sourceTree = "<group>"; };
+		F9135C90265ED6B300E79C24 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		F94EB7A02628DA660012ECE3 /* TransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		F9C02FAA2627182900DF65DB /* PayMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayMethodsView.swift; sourceTree = "<group>"; };
 		F9D544BD2628FEA200659C0B /* CardReaderCheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReaderCheckoutView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				F508605C2624CF19008089F8 /* ContentView.swift */,
 				E968E01826287DC70001E857 /* SelectedProductsView.swift */,
 				F9C02FAA2627182900DF65DB /* PayMethodsView.swift */,
+				F9135C90265ED6B300E79C24 /* Printer.swift */,
 				F9D544BD2628FEA200659C0B /* CardReaderCheckoutView.swift */,
 				F94EB7A02628DA660012ECE3 /* TransitionViewController.swift */,
 				E9833C6F2625BE1E004771B1 /* ProductView.swift */,
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9135C91265ED6B300E79C24 /* Printer.swift in Sources */,
 				F508608A2624D6D0008089F8 /* Network.swift in Sources */,
 				F9D544BE2628FEA200659C0B /* CardReaderCheckoutView.swift in Sources */,
 				F50860592624CF19008089F8 /* AppDelegate.swift in Sources */,

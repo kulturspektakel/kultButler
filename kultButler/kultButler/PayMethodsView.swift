@@ -69,18 +69,31 @@ struct PayMethodsView: View {
 				}
 			}
 			Spacer()
-			NavigationLink(destination: SumUpView(), isActive: $showSumUpSDK) {
-				Button(action: {
-					self.showSumUpSDK = true
-				}) { Text("SumUp Login")
-					.frame(width: 150, height: 75)
-					.padding()
-					.background(Color.gray)
-					.foregroundColor(.white)
-					.cornerRadius(10.0)
-					.disabled(barButtonDisable)
-				}
-			}
+            HStack {
+                NavigationLink(destination: SumUpView(), isActive: $showSumUpSDK) {
+                    Button(action: {
+                        self.showSumUpSDK = true
+                    }) { Text("SumUp Login")
+                        .frame(width: 150, height: 75)
+                        .padding()
+                        .background(Color.gray)
+                        .foregroundColor(.white)
+                        .cornerRadius(10.0)
+                        .disabled(barButtonDisable)
+                    }
+                }
+                Button(action: {
+                    self.paymentInfo = "Drucker verbinden"
+                    connectPrinter()
+                }) { Text("Drucker verbinden")
+                    .frame(width: 150, height: 75)
+                    .padding()
+                    .background(Color.gray)
+                    .foregroundColor(.white)
+                    .cornerRadius(10.0)
+                    .disabled(barButtonDisable)
+                }
+            }
 			Spacer()
 		}
 	}
@@ -88,6 +101,7 @@ struct PayMethodsView: View {
 
 func sumuppayment(total: Double) {
 }
+
 struct SumUpCard: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
 
