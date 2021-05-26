@@ -16,8 +16,10 @@ class TransitionViewController: UIViewController {
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		SumUpSDK.presentLogin(from: self, animated: true, completionBlock: { _, _ in
-			self.navigationController?.popToRootViewController(animated: true)
+		SumUpSDK.presentLogin(from: self, animated: true, completionBlock: { success, _ in
+			if success {
+				self.navigationController?.popToRootViewController(animated: true)
+			}
 		})
 	}
 }

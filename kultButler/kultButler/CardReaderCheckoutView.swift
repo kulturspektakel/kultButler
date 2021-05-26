@@ -5,80 +5,87 @@
 //  Created by Valentin Langer on 16.04.21.
 //
 
-import SwiftUI
 import SumUpSDK
+import SwiftUI
 
 class CardReaderCheckoutView: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    func showResult(string: String) {
-        print(string)
-    }
+	override func viewDidLoad() {
+		super.viewDidLoad()
+	}
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        SumUpSDK.presentLogin(from: self, animated: true, completionBlock: { _, _ in
-            self.navigationController?.popToRootViewController(animated: true)
-        })
-        guard let merchantCurrencyCode = SumUpSDK.currentMerchant?.currencyCode else {
-            print("not logged in")
-            return
-        }
+	func showResult(string: String) {
+		print(string)
+	}
 
-        // create an NSDecimalNumber from the totalText
-        // please be aware to not use NSDecimalNumber initializers inherited from NSNumber
-        let total = NSDecimalNumber(string: "5")
-        guard total != NSDecimalNumber.zero else {
-            return
-        }
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		sumUp()
+	}
 
-        // setup payment request
-        let request = CheckoutRequest(total: total,
-                                      title: "Bestellung",
-                                      currencyCode: merchantCurrencyCode)
-        
-        SumUpSDK.checkout(with: request, from: self) { [weak self] (result: CheckoutResult?, error: Error?) in
-            if let safeError = error as NSError? {
-                print("error during checkout: \(safeError)")
+	private func sumUp() {
+		SumUpSDK.presentLogin(from: self, animated: true, completionBlock: { success, _ in
+			if success {
+				self.navigationController?.popToRootViewController(animated: true)
+			}
+		})
+		guard let merchantCurrencyCode = SumUpSDK.currentMerchant?.currencyCode else {
+			print("not logged in")
+			return
+		}
 
-                if (safeError.domain == SumUpSDKErrorDomain) && (safeError.code == SumUpSDKError.accountNotLoggedIn.rawValue) {
-                    self?.showResult(string: "not logged in")
-                } else {
-                    self?.showResult(string: "general error")
-                }
+		// create an NSDecimalNumber from the totalText
+		// please be aware to not use NSDecimalNumber initializers inherited from NSNumber
+		let total = NSDecimalNumber(string: "5")
+		guard total != NSDecimalNumber.zero else {
+			return
+		}
 
-                return
-            }
+		// setup payment request
+		let request = CheckoutRequest(total: total,
+									  title: "Bestellung",
+									  currencyCode: merchantCurrencyCode)
 
-            guard let safeResult = result else {
-                print("no error and no result should not happen")
-                return
-            }
+		SumUpSDK.checkout(with: request, from: self) { [weak self] (result: CheckoutResult?, error: Error?) in
+			if let safeError = error as NSError? {
+				print("error during checkout: \(safeError)")
 
-            print("result_transaction==\(String(describing: safeResult.transactionCode))")
+				if (safeError.domain == SumUpSDKErrorDomain) && (safeError.code == SumUpSDKError.accountNotLoggedIn.rawValue) {
+					self?.showResult(string: "not logged in")
+				} else {
+					self?.showResult(string: "general error")
+				}
 
-            if safeResult.success {
-                print("success")
-                var message = "Thank you - \(String(describing: safeResult.transactionCode))"
+				return
+			}
 
-                if let info = safeResult.additionalInfo,
-                    let tipAmount = info["tip_amount"] as? Double, tipAmount > 0,
-                    let currencyCode = info["currency"] as? String {
-                    message = message.appending("\ntip: \(tipAmount) \(currencyCode)")
-                }
+			guard let safeResult = result else {
+				print("no error and no result should not happen")
+				return
+			}
 
-                self?.showResult(string: message)
-            } else {
-                print("cancelled: no error, no success")
-                self?.showResult(string: "No charge (cancelled)")
-            }
-        // after the checkout is initiated we expect a checkout to be in progress
-        if !SumUpSDK.checkoutInProgress {
-            // something went wrong: checkout was not started
-            print("failed to start checkout")
-        }
-    }
-    }
+			print("result_transaction==\(String(describing: safeResult.transactionCode))")
+
+			if safeResult.success {
+				print("success")
+				var message = "Thank you - \(String(describing: safeResult.transactionCode))"
+
+				if let info = safeResult.additionalInfo,
+				   let tipAmount = info["tip_amount"] as? Double, tipAmount > 0,
+				   let currencyCode = info["currency"] as? String {
+					message = message.appending("\ntip: \(tipAmount) \(currencyCode)")
+				}
+
+				self?.showResult(string: message)
+			} else {
+				print("cancelled: no error, no success")
+				self?.showResult(string: "No charge (cancelled)")
+			}
+			// after the checkout is initiated we expect a checkout to be in progress
+			if !SumUpSDK.checkoutInProgress {
+				// something went wrong: checkout was not started
+				print("failed to start checkout")
+			}
+			self!.navigationController?.popToRootViewController(animated: true)
+		}
+	}
 }
