@@ -20,7 +20,7 @@ class CardReaderCheckoutView: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         SumUpSDK.presentLogin(from: self, animated: true, completionBlock: { _, _ in
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         })
         guard let merchantCurrencyCode = SumUpSDK.currentMerchant?.currencyCode else {
             print("not logged in")
@@ -74,8 +74,6 @@ class CardReaderCheckoutView: UIViewController {
                 print("cancelled: no error, no success")
                 self?.showResult(string: "No charge (cancelled)")
             }
-        
-
         // after the checkout is initiated we expect a checkout to be in progress
         if !SumUpSDK.checkoutInProgress {
             // something went wrong: checkout was not started
