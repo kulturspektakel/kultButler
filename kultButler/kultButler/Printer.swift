@@ -8,17 +8,35 @@
 import Foundation
 import CoreBluetooth
 
+let printer = PrinterSDK.default()!
 
-func connectPrinter() {
-    let printer = PrinterSDK.default()!
+func connectPrinter() -> Bool {
     printer.scanPrinters(completion: { foundPrinter in
         print(foundPrinter?.name)
-        printer.stopScanPrinters()
-        printer.connectBT(foundPrinter!)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0){
-            print("Start Test")
-            printer.printText("Test")
-        }
+        printer.connectBT(foundPrinter)
     })
+    sleep(10)
+    print("Drucker verbunden")
+    return true
 }
 
+func printOrder(bestellung: Bestellung) {
+    printer.setFontSizeMultiple(1)
+    printer.printText("Bestellung: " + bestellung.id)
+    printer.setFontSizeMultiple(4)
+    printer.printText("Bestellung: " + bestellung.inhalt)
+}
+
+func printTest(testText: String) {
+    printer.setFontSizeMultiple(4)
+    printer.printText(testText)
+}
+
+struct Bestellung {
+    let id: String
+    let inhalt: String
+}
+
+/*
+let b1 = Bestellung(id: "50", inhalt: "Burger \nNix \nPommes")
+printPrinter(bestellung: b1)*/

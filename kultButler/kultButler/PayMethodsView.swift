@@ -16,6 +16,9 @@ struct PayMethodsView: View {
 	@State private var karteDisableButton = false
 	@State private var gutscheinDisableButton = false
 	@State private var orgaDisableButton = false
+    @State private var showingAlert = false
+
+    
 	var body: some View {
 		VStack {
 			Spacer()
@@ -83,9 +86,30 @@ struct PayMethodsView: View {
                     }
                 }
                 Button(action: {
-                    self.paymentInfo = "Drucker verbinden"
-                    connectPrinter()
+                    self.paymentInfo = "Drucker verbinden, Bitte warten!"
+                    if connectPrinter() && connectPrinter() {
+                        showingAlert = true
+                        self.paymentInfo = "Drucker verbunden!"
+                    }
                 }) { Text("Drucker verbinden")
+                    .frame(width: 150, height: 75)
+                    .padding()
+                    .background(Color.gray)
+                    .foregroundColor(.white)
+                    .cornerRadius(10.0)
+                    .disabled(barButtonDisable)
+                    .alert(isPresented: $showingAlert) {
+                        Alert(
+                            title: Text("Drucker Status Nachricht"),
+                            message: Text("Drucker verbunden"),
+                            dismissButton: .default(Text("Alles klar!"))
+                        )
+                    }
+                }
+                Button(action: {
+                    self.paymentInfo = "Test wird gedruckt"
+                    printTest(testText: "Drucker Test Success")
+                }) { Text("Drucker Test")
                     .frame(width: 150, height: 75)
                     .padding()
                     .background(Color.gray)
@@ -101,7 +125,6 @@ struct PayMethodsView: View {
 
 func sumuppayment(total: Double) {
 }
-
 struct SumUpCard: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
 
@@ -116,7 +139,6 @@ struct SumUpView: UIViewControllerRepresentable {
 		TransitionViewController()
 	}
 }
-
 struct PayMethodsView_Previews: PreviewProvider {
 	static var previews: some View {
 		PayMethodsView()
