@@ -18,15 +18,14 @@ struct SelectedProductsView: View {
                         .fontWeight(.semibold)
                         .truncationMode(.tail)
                         .lineLimit(1)
+                    Spacer()
 					Text("\(order.price.string) €")
-                        .fontWeight(.semibold)
                         .truncationMode(.tail)
                         .lineLimit(1)
-                    Spacer()
                 }
             }.onDelete(perform: delete)
-        }.frame(alignment: .leading)
-        .padding()
+        }
+        .frame(alignment: .leading)
         .listStyle(PlainListStyle())
     }
 

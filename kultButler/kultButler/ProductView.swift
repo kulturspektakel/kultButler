@@ -7,54 +7,60 @@
 
 import SwiftUI
 
-struct ProductView: View {
-
-    @EnvironmentObject var appState: AppState
-
-    var products = [Product]()
-
-    init (products: [Product]) {
-        self.products = products
+private func categoryVHeader(with header: String) -> some View {
+    HStack {
+        Text(header)
+            .font(.title2)
+            .fontWeight(.semibold)
+        Spacer()
     }
+    .padding(.vertical, 8)
+    .background(Color.white)
+    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+}
 
-    let gridItemWidth = (UIScreen.main.bounds.width / 3) * 0.22
-    let gridSpacingWidth = (UIScreen.main.bounds.width / 3) * 0.05
-
-    var colums: [GridItem] = Array(repeating: .init(.fixed((UIScreen.main.bounds.width / 3) * 0.22 + (((UIScreen.main.bounds.width / 3) * 0.22) / 5) * 2), spacing: (UIScreen.main.bounds.width / 3) * 0.05), count: 5)
-
+struct ProductView: View {
+    
+    @EnvironmentObject var appState: AppState
+    
+    private var columns: [GridItem] = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
-        ScrollView(.vertical) {
-            VStack {
-                LazyVGrid(columns: colums, alignment: .leading, spacing: gridSpacingWidth) {
-                    ForEach(products) { product in
-                        VStack {
-                            // swiftlint:disable:next multiple_closures_with_trailing_closure
-                            Button( action: { appState.addOrder(order: product) }) {
-                                VStack {
-                                    Text(product.name)
-                                        .fontWeight(.semibold)
-                                        .truncationMode(.tail)
-                                        .lineLimit(1)
-                                    Text("")
-									Text("\(product.price.string) €")
-                                }.frame(width: gridItemWidth, height: gridItemWidth, alignment: .center)
-                                .padding((gridItemWidth / 5))
-                                .foregroundColor(.white)
-                                .background(Color.blue)
-                                .cornerRadius(gridItemWidth / 4.5)
+        LazyVGrid(columns: columns, spacing: 10, pinnedViews: [.sectionHeaders]) {
+            ForEach(appState.booths) { booth in
+                Section(header: categoryVHeader(with: "\(booth.emoji ?? "") \(booth.name)")) {
+                    ForEach(booth.products) { product in
+                        Button( action: { appState.addOrder(order: product) }) {
+                            VStack {
+                                Text(product.name)
+                                    .fontWeight(.semibold)
+                                    .lineLimit(3)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.bottom, 1)
+                                Text("\(product.price.string) €")
                             }
-
+                            .padding(10)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .foregroundColor(Color(.label))
+                            .background(Color(.systemGray6))
+                            .cornerRadius(10.0)
                         }
                     }
                 }
             }
         }
+        .frame(maxWidth: .infinity)
     }
 }
 
 struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
-        let products = [Product(name: "Fleischlappen", price: Price(string: "4.00", double: 400))]
-        ProductView(products: products)
+        ProductView()
     }
 }

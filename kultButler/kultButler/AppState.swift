@@ -11,6 +11,11 @@ import SwiftUI
 
 class AppState: ObservableObject {
 	@Published var booths = [Booth]()
+    @Published var pfand = 0 {
+        didSet{
+            currentOrderSum = calculateOrderSum()
+        }
+    }
 	@Published var currentOrderSum: Double = 0.0
 	@Published private(set) var currentOrder = [Product]() {
 		didSet {
@@ -37,11 +42,12 @@ class AppState: ObservableObject {
 
 	public func resetCurrentOrder() {
 		currentOrder = []
+        pfand = 0
 	}
 
 	private func calculateOrderSum() -> Double {
 		currentOrder.reduce(0.0, { acc, order in
 			acc + order.price.double
-		})
+        }) + (Double(pfand) * 2.0)
 	}
 }
