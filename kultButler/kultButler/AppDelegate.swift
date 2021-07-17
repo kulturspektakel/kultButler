@@ -15,8 +15,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		Network.shared.loadProducts()
-
 		//SumUp Integration / Payment Key
 		#if DEBUG
 		/*
@@ -26,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		SumUpSDK.testIntegration()
 		#endif
 
-		SumUpSDK.setup(withAPIKey: "4e29fecf-e88d-43e2-b258-16a0f3203528")
+        if let sumUpApiKey = Bundle.main.object(forInfoDictionaryKey: "SUM_UP_API_KEY") as? String {
+            SumUpSDK.setup(withAPIKey: sumUpApiKey)
+        }
 
 		return true
 	}

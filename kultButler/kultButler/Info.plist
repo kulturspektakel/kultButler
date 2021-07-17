@@ -66,5 +66,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
+	<key>SUM_UP_API_KEY</key>
+	<string>$(SUM_UP_API_KEY)</string>
+	<key>KULT_API_TOKEN</key>
+	<string>$(KULT_API_TOKEN)</string>
 </dict>
 </plist>

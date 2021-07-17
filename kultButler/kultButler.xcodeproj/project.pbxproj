@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67242BF026A20D4600559AAF /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67242BEF26A20D4600559AAF /* PriceLabel.swift */; };
+		67242BF226A215A200559AAF /* CompleteOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67242BF126A215A200559AAF /* CompleteOrder.swift */; };
+		67242BF426A253EB00559AAF /* Deposit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67242BF326A253EB00559AAF /* Deposit.swift */; };
+		67242BF626A306E000559AAF /* SumUpSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67242BF526A306E000559AAF /* SumUpSDK.xcframework */; };
+		67242BF726A306E000559AAF /* SumUpSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67242BF526A306E000559AAF /* SumUpSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		67242BFA26A3163900559AAF /* SolidButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67242BF926A3163900559AAF /* SolidButton.swift */; };
+		67242BFC26A3303C00559AAF /* ApolloSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 67242BFB26A3303C00559AAF /* ApolloSQLite */; };
 		E968E01926287DC70001E857 /* SelectedProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968E01826287DC70001E857 /* SelectedProductsView.swift */; };
 		E9833C702625BE1E004771B1 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9833C6F2625BE1E004771B1 /* ProductView.swift */; };
 		F50860592624CF19008089F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860582624CF19008089F8 /* AppDelegate.swift */; };
@@ -16,19 +23,27 @@
 		F50860622624CF1B008089F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F50860612624CF1B008089F8 /* Preview Assets.xcassets */; };
 		F50860652624CF1B008089F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F50860632624CF1B008089F8 /* LaunchScreen.storyboard */; };
 		F508606F2624D094008089F8 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = F508606E2624D094008089F8 /* Apollo */; };
-		F50860752624D254008089F8 /* SumUpSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F50860742624D254008089F8 /* SumUpSDK */; };
 		F508607F2624D5E0008089F8 /* ProductLists.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F508607E2624D5E0008089F8 /* ProductLists.graphql */; };
 		F50860832624D670008089F8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860822624D670008089F8 /* API.swift */; };
 		F508608A2624D6D0008089F8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860892624D6D0008089F8 /* Network.swift */; };
 		F53A22E82628CFD60046498A /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A22E72628CFD60046498A /* AppState.swift */; };
 		F59B4C0D265ED04E00E7E5A1 /* libPrinterSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F59B4C0C265ED04E00E7E5A1 /* libPrinterSDK.a */; };
 		F59B4C10265ED24400E7E5A1 /* PrinterSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F59B4C0E265ED1EF00E7E5A1 /* PrinterSDK.h */; };
-		F94EB7A12628DA660012ECE3 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94EB7A02628DA660012ECE3 /* TransitionViewController.swift */; };
-		F9C02FAB2627182900DF65DB /* PayMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C02FAA2627182900DF65DB /* PayMethodsView.swift */; };
-		F9D544BE2628FEA200659C0B /* CardReaderCheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D544BD2628FEA200659C0B /* CardReaderCheckoutView.swift */; };
+		F9D544BE2628FEA200659C0B /* SumUpCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D544BD2628FEA200659C0B /* SumUpCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		67242BF826A306E000559AAF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				67242BF726A306E000559AAF /* SumUpSDK.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F59B4C0F265ED21800E7E5A1 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,6 +57,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		67242BEE26A208E400559AAF /* CreateOrder.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateOrder.graphql; sourceTree = "<group>"; };
+		67242BEF26A20D4600559AAF /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
+		67242BF126A215A200559AAF /* CompleteOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteOrder.swift; sourceTree = "<group>"; };
+		67242BF326A253EB00559AAF /* Deposit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deposit.swift; sourceTree = "<group>"; };
+		67242BF526A306E000559AAF /* SumUpSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SumUpSDK.xcframework; path = "/Users/danielbuechele/Library/Developer/Xcode/DerivedData/kultButler-fufbsmogywwhsrefoyrgrydbhdbd/SourcePackages/checkouts/sumup-ios-sdk/SumUpSDK.xcframework"; sourceTree = "<absolute>"; };
+		67242BF926A3163900559AAF /* SolidButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidButton.swift; sourceTree = "<group>"; };
+		67242BFF26A3496D00559AAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E968E01826287DC70001E857 /* SelectedProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProductsView.swift; sourceTree = "<group>"; };
 		E9833C6F2625BE1E004771B1 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		F50860552624CF19008089F8 /* kultButler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kultButler.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,9 +82,7 @@
 		F59B4C0C265ED04E00E7E5A1 /* libPrinterSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPrinterSDK.a; sourceTree = "<group>"; };
 		F59B4C0E265ED1EF00E7E5A1 /* PrinterSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrinterSDK.h; sourceTree = "<group>"; };
 		F59B4C12265ED2FC00E7E5A1 /* kultButler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kultButler-Bridging-Header.h"; sourceTree = "<group>"; };
-		F94EB7A02628DA660012ECE3 /* TransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
-		F9C02FAA2627182900DF65DB /* PayMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayMethodsView.swift; sourceTree = "<group>"; };
-		F9D544BD2628FEA200659C0B /* CardReaderCheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardReaderCheckoutView.swift; sourceTree = "<group>"; };
+		F9D544BD2628FEA200659C0B /* SumUpCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumUpCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +91,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F59B4C0D265ED04E00E7E5A1 /* libPrinterSDK.a in Frameworks */,
-				F50860752624D254008089F8 /* SumUpSDK in Frameworks */,
+				67242BFC26A3303C00559AAF /* ApolloSQLite in Frameworks */,
 				F508606F2624D094008089F8 /* Apollo in Frameworks */,
+				67242BF626A306E000559AAF /* SumUpSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +103,7 @@
 		F508604C2624CF19008089F8 = {
 			isa = PBXGroup;
 			children = (
+				67242BFF26A3496D00559AAF /* Config.xcconfig */,
 				F59B4C08265ECF2300E7E5A1 /* Frameworks */,
 				F50860572624CF19008089F8 /* kultButler */,
 				F50860562624CF19008089F8 /* Products */,
@@ -105,17 +127,20 @@
 				F50860582624CF19008089F8 /* AppDelegate.swift */,
 				F508605A2624CF19008089F8 /* SceneDelegate.swift */,
 				F508605C2624CF19008089F8 /* ContentView.swift */,
+				67242BF126A215A200559AAF /* CompleteOrder.swift */,
 				E968E01826287DC70001E857 /* SelectedProductsView.swift */,
-				F9C02FAA2627182900DF65DB /* PayMethodsView.swift */,
-				F9D544BD2628FEA200659C0B /* CardReaderCheckoutView.swift */,
-				F94EB7A02628DA660012ECE3 /* TransitionViewController.swift */,
+				F9D544BD2628FEA200659C0B /* SumUpCard.swift */,
 				E9833C6F2625BE1E004771B1 /* ProductView.swift */,
+				67242BEF26A20D4600559AAF /* PriceLabel.swift */,
+				67242BF926A3163900559AAF /* SolidButton.swift */,
+				67242BF326A253EB00559AAF /* Deposit.swift */,
 				F50860892624D6D0008089F8 /* Network.swift */,
 				F508605E2624CF1B008089F8 /* Assets.xcassets */,
 				F50860632624CF1B008089F8 /* LaunchScreen.storyboard */,
 				F50860662624CF1B008089F8 /* Info.plist */,
 				F59B4C11265ED2C700E7E5A1 /* Supporting Files */,
 				F50860602624CF1B008089F8 /* Preview Content */,
+				67242BEE26A208E400559AAF /* CreateOrder.graphql */,
 				F508607E2624D5E0008089F8 /* ProductLists.graphql */,
 			);
 			path = kultButler;
@@ -134,6 +159,7 @@
 			children = (
 				F59B4C0C265ED04E00E7E5A1 /* libPrinterSDK.a */,
 				F59B4C0E265ED1EF00E7E5A1 /* PrinterSDK.h */,
+				67242BF526A306E000559AAF /* SumUpSDK.xcframework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -159,6 +185,7 @@
 				F50860522624CF19008089F8 /* Frameworks */,
 				F59B4C0F265ED21800E7E5A1 /* CopyFiles */,
 				F50860532624CF19008089F8 /* Resources */,
+				67242BF826A306E000559AAF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,7 +194,7 @@
 			name = kultButler;
 			packageProductDependencies = (
 				F508606E2624D094008089F8 /* Apollo */,
-				F50860742624D254008089F8 /* SumUpSDK */,
+				67242BFB26A3303C00559AAF /* ApolloSQLite */,
 			);
 			productName = kultButler;
 			productReference = F50860552624CF19008089F8 /* kultButler.app */;
@@ -268,12 +295,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F508608A2624D6D0008089F8 /* Network.swift in Sources */,
-				F9D544BE2628FEA200659C0B /* CardReaderCheckoutView.swift in Sources */,
+				67242BF226A215A200559AAF /* CompleteOrder.swift in Sources */,
+				F9D544BE2628FEA200659C0B /* SumUpCard.swift in Sources */,
+				67242BFA26A3163900559AAF /* SolidButton.swift in Sources */,
 				F50860592624CF19008089F8 /* AppDelegate.swift in Sources */,
+				67242BF426A253EB00559AAF /* Deposit.swift in Sources */,
 				F508605B2624CF19008089F8 /* SceneDelegate.swift in Sources */,
-				F94EB7A12628DA660012ECE3 /* TransitionViewController.swift in Sources */,
+				67242BF026A20D4600559AAF /* PriceLabel.swift in Sources */,
 				F53A22E82628CFD60046498A /* AppState.swift in Sources */,
-				F9C02FAB2627182900DF65DB /* PayMethodsView.swift in Sources */,
 				F50860832624D670008089F8 /* API.swift in Sources */,
 				E968E01926287DC70001E857 /* SelectedProductsView.swift in Sources */,
 				E9833C702625BE1E004771B1 /* ProductView.swift in Sources */,
@@ -415,13 +444,14 @@
 		};
 		F508606A2624CF1B008089F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67242BFF26A3496D00559AAF /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"kultButler/Preview Content\"";
-				DEVELOPMENT_TEAM = FY482T2YCZ;
+				DEVELOPMENT_TEAM = K5C6E7A2D6;
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				HEADER_SEARCH_PATHS = (
@@ -437,7 +467,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/**",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = de.kult;
+				PRODUCT_BUNDLE_IDENTIFIER = de.kulturspektakel.kultButler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "kultButler/Supporting Files/kultButler-Bridging-Header.h";
@@ -448,12 +478,13 @@
 		};
 		F508606B2624CF1B008089F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67242BFF26A3496D00559AAF /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"kultButler/Preview Content\"";
-				DEVELOPMENT_TEAM = FY482T2YCZ;
+				DEVELOPMENT_TEAM = K5C6E7A2D6;
 				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				HEADER_SEARCH_PATHS = (
@@ -469,7 +500,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/**",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "de.kult-kultButler";
+				PRODUCT_BUNDLE_IDENTIFIER = de.kulturspektakel.kultButler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "kultButler/Supporting Files/kultButler-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -506,7 +537,7 @@
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.42.0;
+				minimumVersion = 0.45.0;
 			};
 		};
 		F50860732624D254008089F8 /* XCRemoteSwiftPackageReference "sumup-ios-sdk" */ = {
@@ -514,21 +545,21 @@
 			repositoryURL = "https://github.com/sumup/sumup-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.1;
+				minimumVersion = 4.1.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		67242BFB26A3303C00559AAF /* ApolloSQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F508606D2624D094008089F8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloSQLite;
+		};
 		F508606E2624D094008089F8 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F508606D2624D094008089F8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
-		};
-		F50860742624D254008089F8 /* SumUpSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F50860732624D254008089F8 /* XCRemoteSwiftPackageReference "sumup-ios-sdk" */;
-			productName = SumUpSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

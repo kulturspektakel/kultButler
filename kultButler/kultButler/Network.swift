@@ -6,66 +6,54 @@
 //
 
 import Apollo
+import ApolloSQLite
 import Foundation
 
-class Network: ObservableObject {
-	static let shared = Network()
 
-	//swiftlint:disable:next force_unwrapping
-	private(set) lazy var apollo = ApolloClient(url: URL(string: "https://api.kulturspektakel.de/graphql")!)
-
-	@Published var booths = [Booth]()
-
-	private typealias ApolloProduct = ProducListsQuery.Data.ProductList.Product
-
-	public func loadProducts() {
-		Network.shared.apollo
-			.fetch(query: ProducListsQuery()) { [weak self] result in
-				guard let self = self else { return }
-
-				switch result {
-				case .success(let graphQLResult):
-					guard let results = graphQLResult.data else {
-						assertionFailure("Couldn't load ProductList")
-						return
-					}
-					results.productLists.forEach { booth in
-						let products = booth.product.map { product -> Product in
-							Product(name: product.name, price: self.priceForProduct(product))
-						}
-						let newBooth = Booth(name: booth.name,
-											 emoji: booth.emoji,
-											 products: products)
-						self.booths.append(newBooth)
-					}
-					print("Loaded ProductList succesfully")
-				case .failure(let error):
-					fatalError(error.localizedDescription)
-				}
-			}
-	}
-
-	private func priceForProduct(_ product: ApolloProduct) -> Price {
-		let double = Double(product.price) / 100.0
-		let string = String(format: "%.2f", double)
-		return Price(string: string, double: double)
-	}
+class TokenAddingInterceptor: ApolloInterceptor {
+    func interceptAsync<Operation: GraphQLOperation>(
+        chain: RequestChain,
+        request: HTTPRequest<Operation>,
+        response: HTTPResponse<Operation>?,
+        completion: @escaping (Result<GraphQLResult<Operation.Data>, Error>) -> Void) {
+        if let token = Bundle.main.object(forInfoDictionaryKey: "KULT_API_TOKEN") as? String {
+            request.addHeader(name: "Authorization", value: "Bearer \(token)")
+        }
+        chain.proceedAsync(request: request,
+                           response: response,
+                           completion: completion)
+    }
 }
 
-public struct Booth: Identifiable {
-	public let id = UUID()
-	public let name: String
-	public let emoji: String?
-	public let products: [Product]
+class NetworkInterceptorProvider: DefaultInterceptorProvider {
+    override func interceptors<Operation: GraphQLOperation>(for operation: Operation) -> [ApolloInterceptor] {
+        var interceptors = super.interceptors(for: operation)
+        interceptors.insert(TokenAddingInterceptor(), at: 0)
+        return interceptors
+    }
 }
 
-public struct Product: Identifiable {
-	public let id = UUID()
-	public let name: String
-	public let price: Price
-}
 
-public struct Price {
-	public let string: String
-	public let double: Double
+public final class Network {
+    
+    static let shared = Network()
+    
+    private(set) lazy var apollo: ApolloClient = {
+        let client = URLSessionClient()
+        
+        var cache: NormalizedCache = InMemoryNormalizedCache()
+        if let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let sqliteFileURL = documentsURL.appendingPathComponent("apollo.sqlite")
+            do {
+                cache = try SQLiteNormalizedCache(fileURL: sqliteFileURL)
+            } catch {}
+        }
+        
+        let store = ApolloStore(cache: cache)
+        let provider = NetworkInterceptorProvider(client: client, store: store)
+        let url = URL(string: "https://api.kulturspektakel.de/graphql")!
+        let transport = RequestChainNetworkTransport(interceptorProvider: provider,
+                                                     endpointURL: url)
+        return ApolloClient(networkTransport: transport, store: store)
+    }()
 }

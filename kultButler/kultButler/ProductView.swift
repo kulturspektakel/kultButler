@@ -15,7 +15,7 @@ private func categoryVHeader(with header: String) -> some View {
         Spacer()
     }
     .padding(.vertical, 8)
-    .background(Color.white)
+    .background(Color(.systemBackground))
     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
 }
 
@@ -27,30 +27,30 @@ struct ProductView: View {
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible()),
-        GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 10, pinnedViews: [.sectionHeaders]) {
-            ForEach(appState.booths) { booth in
-                Section(header: categoryVHeader(with: "\(booth.emoji ?? "") \(booth.name)")) {
-                    ForEach(booth.products) { product in
-                        Button( action: { appState.addOrder(order: product) }) {
+            ForEach(appState.lists, id: \.self.id) { list in
+                Section(header: categoryVHeader(with: "\(list.emoji ?? "") \(list.name)")) {
+                    ForEach(list.product, id: \.self.id) { product in
+                        Button( action: { appState.addOrder(listId: list.id, order: product) }) {
                             VStack {
                                 Text(product.name)
                                     .fontWeight(.semibold)
                                     .lineLimit(3)
                                     .multilineTextAlignment(.center)
                                     .padding(.bottom, 1)
-                                Text("\(product.price.string) €")
+                                HStack {
+                                    PriceLabel(price: product.price)
+                                    if product.requiresDeposit {
+                                        Deposit()
+                                    }
+                                }
                             }
-                            .padding(10)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .foregroundColor(Color(.label))
-                            .background(Color(.systemGray6))
-                            .cornerRadius(10.0)
-                        }
+                        }.buttonStyle(SolidButton())
                     }
                 }
             }

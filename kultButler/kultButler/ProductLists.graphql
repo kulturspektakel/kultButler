@@ -1,10 +1,13 @@
 query ProducLists {
   productLists {
+    id
     name
     emoji
     product(orderBy: {order: asc}) {
+      id
       name
       price
+      requiresDeposit
     }
   }
 }

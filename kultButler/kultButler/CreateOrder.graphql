@@ -1,0 +1,17 @@
+mutation CreateOrder(
+  $products: [OrderItemInput!]!
+  $payment: OrderPayment!
+  $deposit: Int!
+  $clientId: String,
+  $deviceTime: DateTime!
+) {
+  createOrder(
+    products: $products,
+    payment: $payment,
+    deposit: $deposit
+    clientId: $clientId,
+    deviceTime: $deviceTime,
+  ) {
+    id
+  }
+}
