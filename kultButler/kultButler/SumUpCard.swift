@@ -29,14 +29,18 @@ class CardReaderCheckoutView: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        SumUpSDK.presentLogin(from: self, animated: true, completionBlock: { success, error in
-            if let e = error {
-                print(e)
-            } else {
-                self.navigationController?.popToRootViewController(animated: true)
-                self.doTransaction(total: self.total)
-            }
-        })
+        if SumUpSDK.isLoggedIn {
+            self.doTransaction(total: self.total)
+        } else {
+            SumUpSDK.presentLogin(from: self, animated: true, completionBlock: { success, error in
+                if let e = error {
+                    print(e)
+                } else {
+                    self.navigationController?.popToRootViewController(animated: true)
+                    self.doTransaction(total: self.total)
+                }
+            })
+        }
     }
     
     private func doTransaction(total: Int) {
