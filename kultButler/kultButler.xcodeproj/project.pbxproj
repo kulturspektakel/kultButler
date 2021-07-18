@@ -64,6 +64,7 @@
 		67242BF526A306E000559AAF /* SumUpSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SumUpSDK.xcframework; path = "/Users/danielbuechele/Library/Developer/Xcode/DerivedData/kultButler-fufbsmogywwhsrefoyrgrydbhdbd/SourcePackages/checkouts/sumup-ios-sdk/SumUpSDK.xcframework"; sourceTree = "<absolute>"; };
 		67242BF926A3163900559AAF /* SolidButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidButton.swift; sourceTree = "<group>"; };
 		67242BFF26A3496D00559AAF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		67242C0126A4985C00559AAF /* Config.xcconfig.example */ = {isa = PBXFileReference; lastKnownFileType = text; path = Config.xcconfig.example; sourceTree = "<group>"; };
 		E968E01826287DC70001E857 /* SelectedProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProductsView.swift; sourceTree = "<group>"; };
 		E9833C6F2625BE1E004771B1 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		F50860552624CF19008089F8 /* kultButler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kultButler.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				67242BFF26A3496D00559AAF /* Config.xcconfig */,
+				67242C0126A4985C00559AAF /* Config.xcconfig.example */,
 				F59B4C08265ECF2300E7E5A1 /* Frameworks */,
 				F50860572624CF19008089F8 /* kultButler */,
 				F50860562624CF19008089F8 /* Products */,

@@ -228,7 +228,7 @@ class AppState: ObservableObject {
             products.forEach({ p in
                 let amount = "\(p.0)x "
                 let price = self.numberFormatter.string(
-                    from: NSNumber(value: p.1.price * p.0 / 100)
+                    from: NSNumber(value: Double(p.1.price * p.0) / 100)
                 )?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "0,00"
                 let name = p.1.name.folding(options: .diacriticInsensitive, locale: .current).replacingOccurrences(of: "ß", with: "ss")
                 let length = amount.count + price.count + name.count
@@ -240,6 +240,11 @@ class AppState: ObservableObject {
         if (deposit > 0) {
             printerSdk.printText("\(String.init(repeating: "*", count: 32))\n\(deposit)x Pfand\n\(String.init(repeating: "*", count: 32))")
         }
+        
+        printerSdk.setFontSizeMultiple(1)
+        let total = self.numberFormatter.string(from: NSNumber(value: Double(currentTotal()) / 100))?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "0,00"
+        let fill = String.init(repeating: " ", count: 16 - 5 - total.count)
+        printerSdk.printText("Summe\(fill)\(total)")
         
         printerSdk.printText("")
         printerSdk.printText("")

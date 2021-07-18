@@ -1,0 +1,14 @@
+//
+//  Config.xcconfig
+//  kultButler
+//
+//  Created by Daniel Büchele on 7/17/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Rename this file to "Config.xcconfig" and fill in secrets
+
+KULT_API_TOKEN = ...
+SUM_UP_API_KEY = 4e29fecf-e88d-43e2-b258-16a0f3203528 // <- SumUp test accoung
