@@ -10,10 +10,9 @@
 		67242BF026A20D4600559AAF /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67242BEF26A20D4600559AAF /* PriceLabel.swift */; };
 		67242BF226A215A200559AAF /* CompleteOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67242BF126A215A200559AAF /* CompleteOrder.swift */; };
 		67242BF426A253EB00559AAF /* Deposit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67242BF326A253EB00559AAF /* Deposit.swift */; };
-		67242BF626A306E000559AAF /* SumUpSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67242BF526A306E000559AAF /* SumUpSDK.xcframework */; };
-		67242BF726A306E000559AAF /* SumUpSDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67242BF526A306E000559AAF /* SumUpSDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		67242BFA26A3163900559AAF /* SolidButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67242BF926A3163900559AAF /* SolidButton.swift */; };
 		67242BFC26A3303C00559AAF /* ApolloSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 67242BFB26A3303C00559AAF /* ApolloSQLite */; };
+		67242C0326A5AB9D00559AAF /* SumUpSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 67242C0226A5AB9D00559AAF /* SumUpSDK */; };
 		E968E01926287DC70001E857 /* SelectedProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E968E01826287DC70001E857 /* SelectedProductsView.swift */; };
 		E9833C702625BE1E004771B1 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9833C6F2625BE1E004771B1 /* ProductView.swift */; };
 		F50860592624CF19008089F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50860582624CF19008089F8 /* AppDelegate.swift */; };
@@ -33,17 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		67242BF826A306E000559AAF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				67242BF726A306E000559AAF /* SumUpSDK.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F59B4C0F265ED21800E7E5A1 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -91,10 +79,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67242C0326A5AB9D00559AAF /* SumUpSDK in Frameworks */,
 				F59B4C0D265ED04E00E7E5A1 /* libPrinterSDK.a in Frameworks */,
 				67242BFC26A3303C00559AAF /* ApolloSQLite in Frameworks */,
 				F508606F2624D094008089F8 /* Apollo in Frameworks */,
-				67242BF626A306E000559AAF /* SumUpSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,7 +175,6 @@
 				F50860522624CF19008089F8 /* Frameworks */,
 				F59B4C0F265ED21800E7E5A1 /* CopyFiles */,
 				F50860532624CF19008089F8 /* Resources */,
-				67242BF826A306E000559AAF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -197,6 +184,7 @@
 			packageProductDependencies = (
 				F508606E2624D094008089F8 /* Apollo */,
 				67242BFB26A3303C00559AAF /* ApolloSQLite */,
+				67242C0226A5AB9D00559AAF /* SumUpSDK */,
 			);
 			productName = kultButler;
 			productReference = F50860552624CF19008089F8 /* kultButler.app */;
@@ -557,6 +545,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F508606D2624D094008089F8 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = ApolloSQLite;
+		};
+		67242C0226A5AB9D00559AAF /* SumUpSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F50860732624D254008089F8 /* XCRemoteSwiftPackageReference "sumup-ios-sdk" */;
+			productName = SumUpSDK;
 		};
 		F508606E2624D094008089F8 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
