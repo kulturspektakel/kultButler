@@ -50,7 +50,7 @@ class AppState: ObservableObject {
                     }
                     self.lists = results.productLists
                     print("Loaded ProductList succesfully")
-                    fatalError(error.localizedDescription)
+                case .failure(_): break
                 }
             }
     }
