@@ -248,5 +248,36 @@ class AppState: ObservableObject {
         printerSdk.printText("")
         printerSdk.printText("")
     }
+    
+    
+    public func printVouter() {
+        
+        for number in 2...100 {
+            printerSdk.setFontSizeMultiple(1)
+            printerSdk.printText(" KULTURSPEKTAKEL\n  GAUTING 2021")
+            
+            printerSdk.setFontSizeMultiple(0)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.YYY HH:mm"
+            
+            
+            printerSdk.printText("Impf-Gutschein #\(number)")
+            
+                printerSdk.setFontSizeMultiple(1)
+                printerSdk.printText("Ausschank")
+                printerSdk.setFontSizeMultiple(0)
+                printerSdk.printText("1x Alkoholfreies Getrank    0,00")
+            
+                printerSdk.printText("\(String.init(repeating: "*", count: 32))\nAchtung: 2,00 Euro Becherpfand\nwerden berechnet.\n\(String.init(repeating: "*", count: 32))")
+            
+            
+            printerSdk.setFontSizeMultiple(1)
+            printerSdk.printText("Summe       0,00")
+            
+            printerSdk.printText("")
+            printerSdk.printText("")
+        }
+        
+    }
 }
 
