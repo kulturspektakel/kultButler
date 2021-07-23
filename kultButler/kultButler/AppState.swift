@@ -50,7 +50,6 @@ class AppState: ObservableObject {
                     }
                     self.lists = results.productLists
                     print("Loaded ProductList succesfully")
-                case .failure(let error):
                     fatalError(error.localizedDescription)
                 }
             }

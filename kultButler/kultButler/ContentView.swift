@@ -35,6 +35,13 @@ struct ContentView: View {
                     Text("Bestellung")
                         .font(.title2)
                         .fontWeight(.semibold)
+                    
+//                    Button {
+//                        appState.printVouter()
+//                    } label: {
+//                        Text("Gut")
+//                    }
+
                     Spacer()
                     Button {
                         appState.scanPrinters()

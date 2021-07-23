@@ -10,7 +10,6 @@ struct SolidButton: ButtonStyle {
             .padding()
             .background(self.color ?? Color(.systemGray6))
             .opacity(isEnabled ? 1 : 0.3)
-            .foregroundColor((self.color != nil) ? Color(.label) : .white)
             .cornerRadius(10.0)
     }
 }
